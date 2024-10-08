@@ -1,6 +1,5 @@
 name: Run Jest Tests
 
-# Triggers the workflow on push or pull request
 on:
   push:
     branches:
@@ -9,35 +8,28 @@ on:
     branches:
       - main
 
-# Define the jobs
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use the latest version of Ubuntu
+    runs-on: ubuntu-latest
 
-    # Steps to execute
     steps:
-      # Check out the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify your Node.js version
+          node-version: '20'
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Run tests
       - name: Run tests
         run: npm run test -- --ci --coverage
 
-      # Upload coverage report (optional)
       - name: Upload coverage report
-        if: success()  # Only upload if the tests passed
-        uses: actions/upload-artifact@v3
+        if: success()
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-report
           path: ./coverage
