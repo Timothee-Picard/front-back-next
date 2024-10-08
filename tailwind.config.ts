@@ -6,11 +6,17 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "bg-success",
+    "bg-error",
+    "bg-info",
+  ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        success: "#34D399",
+        error: "#EF4444",
+        info: "#3B82F6",
       },
     },
   },
