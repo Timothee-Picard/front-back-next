@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: next-app
-          path: .next
+          path: out
 
   deploy:
     needs: build
