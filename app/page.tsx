@@ -40,12 +40,13 @@ export default function Home() {
     }
 
     return (<>
-        <form className="w-full max-w-lg mx-auto flex flex-col gap-4" onSubmit={handleSubmit}>
+        <form className="w-full max-w-lg mx-auto flex flex-col gap-4" onSubmit={handleSubmit} data-testid="form">
             <div>
                 <label className="font-medium text-[#07074D]" htmlFor="first_name">First Name</label>
                 <input
                     type="text"
                     name="first_name"
+                    data-testid="first_name"
                     id="first_name"
                     placeholder="Enter your first name"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -56,6 +57,7 @@ export default function Home() {
                 <input
                     type="text"
                     name="last_name"
+                    data-testid="last_name"
                     id="last_name"
                     placeholder="Enter your last name"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -66,6 +68,7 @@ export default function Home() {
                 <input
                     type="email"
                     name="email"
+                    data-testid="email"
                     id="email"
                     placeholder="Enter your email"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -76,6 +79,7 @@ export default function Home() {
                 <input
                     type="date"
                     name="birthday"
+                    data-testid="birthday"
                     id="birthday"
                     placeholder="Enter your birthday"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -86,6 +90,7 @@ export default function Home() {
                 <input
                     type="text"
                     name="city"
+                    data-testid="city"
                     id="city"
                     placeholder="Enter your city"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -96,6 +101,7 @@ export default function Home() {
                 <input
                     type="text"
                     name="zip_code"
+                    data-testid="zip_code"
                     id="zip_code"
                     placeholder="Enter your zip code"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
@@ -103,6 +109,7 @@ export default function Home() {
             </div>
             <div>
                 <button type="submit"
+                        data-testid="submit_button"
                         className="w-full bg-[#6A64F1] text-white py-3 px-6 text-base font-medium rounded-md hover:bg-[#6A64F1] hover:shadow-md">
                     Submit
                 </button>

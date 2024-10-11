@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage --watchAll=false"
+    "test": "jest --coverage --watchAll=false",
+    "test:watch": "jest --coverage --watchAll=false"
   },
   "dependencies": {
     "next": "14.2.15",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
+    "@types/jest": "^29.5.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
