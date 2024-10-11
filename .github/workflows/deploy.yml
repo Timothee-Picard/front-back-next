@@ -46,6 +46,12 @@ jobs:
       - name: Build the project
         run: npm run build
 
+      - name: Build the doc
+        run: npm run tsdoc
+
+      - name: move doc to out
+        run: mv doc out/documentation
+
       - name: Setup
         id: pages
         uses: actions/configure-pages@v3

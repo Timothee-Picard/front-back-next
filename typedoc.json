@@ -1,0 +1,18 @@
+{
+  "entryPoints": [
+    "./utils"
+  ],
+  "out": "docs",
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.test.ts"
+  ],
+  "name": "Déploiement Front",
+  "readme": "README.md",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "includeVersion": true,
+  "tsconfig": "./tsconfig.json",
+  "sort": ["static-first", "alphabetical"]
+}

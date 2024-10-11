@@ -1,0 +1,14 @@
+{
+  "source": {
+    "include": [
+      "./app/",
+      "./utils/"
+    ],
+    "exclude": [
+      "node_modules/", "out/"
+    ]
+  },
+  "plugins": [
+    "plugins/markdown"
+  ]
+}
