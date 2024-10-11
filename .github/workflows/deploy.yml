@@ -2,10 +2,8 @@ name: CI/CD for Next.js
 
 on:
   push:
-    tags:
-      - 'v*'
-      # git tag v1.0.0
-      # git push origin v1.0.0
+    branches:
+      - main
 
 jobs:
   test:
@@ -45,6 +43,36 @@ jobs:
 
       - name: Build the project
         run: npm run build
+
+      - name: Build the doc
+        run: npm run tsdoc
+
+      - name: move docs to out
+        run: mv docs out/documentation
+
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Check if version exists on npm
+        id: check_version
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "Checking if $PACKAGE_NAME@$PACKAGE_VERSION exists on npm..."
+          if npm view "$PACKAGE_NAME@$PACKAGE_VERSION" > /dev/null 2>&1; then
+            echo "Version $PACKAGE_NAME@$PACKAGE_VERSION already exists on npm. Skipping publish."
+            echo "SKIP_NPM_PUBLISH=true" >> $GITHUB_ENV
+          else
+            echo "Version $PACKAGE_NAME@$PACKAGE_VERSION does not exist. Proceeding with publish."
+            echo "SKIP_NPM_PUBLISH=false" >> $GITHUB_ENV
+          fi
+
+      - name: publish package on NPM
+        if: env.SKIP_NPM_PUBLISH == 'false'
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup
         id: pages

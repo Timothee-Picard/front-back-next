@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Ce projet est un formulaire Next.js qui effectue une vérification des données saisies par l'utilisateur avant soumission. Il s'agit d'un projet web avec des fonctionnalités de validation côté client et, si nécessaire, des appels à des APIs pour la validation côté serveur.
+## Documentation
+
+La documentation du code est générée avec [TypeDoc](https://typedoc.org/). Vous pouvez la consulter le lien suivant : [Documentation](https://timothee-picard.github.io/front-back-next/documentation/)
+## Installation
+
+### Prérequis
+- Node.js (version 20 ou supérieure)
+- npm ou yarn
+
+1. Clonez ce dépôt sur votre machine locale :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:Timothee-Picard/front-back-next.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Clonez ce dépôt sur votre machine locale :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd nom-du-projet
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Installez les dépendances :
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Lancez le serveur de développement :
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ouvrez [http://localhost:3000](http://localhost:3000) 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+Voici quelques scripts utiles pour gérer le projet :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`npm run dev`** : Démarre le serveur de développement.
+  <br /><br />
+- **`npm run build`** : Compile l'application pour un déploiement en production.
+  <br /><br />
+- **`npm run start`** : Démarre l'application compilée.
+  <br /><br />
+- **`npm run lint`** : Vérifie que le code respecte les conventions et bonnes pratiques.
+  <br /><br />
+- **`npm run test`** : Exécute les tests unitaires.
+  <br /><br />
+- **`npm run test:watch`** : Exécute les tests unitaires en mode watch.
+  <br /><br />
+- **`npm run tsdoc`** : Génère la documentation du code.
+    <br /><br />
+## Deploy on GitPages
+
+Pour déployer le projet sur GitPages il vas falloir créer un tag sur la branche main et le pousser sur le dépôt distant.
+
+1. Créez un tag sur la branche main :
+
+```bash
+git tag -a v1.0.0 -m "Version 1.0.0"
+```
+
+2. Poussez le tag sur le dépôt distant :
+
+```bash
+git push origin v1.0.0
+```
+
+3. Vérifiez que le tag a bien été poussé :
+
+```bash
+git tag
+```
+
+## Technologies
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [TypeDoc](https://typedoc.org/)
+- [GitPages](https://pages.github.com/)
+
+
+
+

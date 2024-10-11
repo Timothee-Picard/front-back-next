@@ -14,6 +14,11 @@ import {useToast} from "@/context/ToastContext";
 export default function Home() {
     const { addToast } = useToast()
 
+    /**
+     * Handle form submission
+     * @param event
+     * @returns void
+     */
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         const formData = new FormData(event.currentTarget)

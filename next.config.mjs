@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    basePath: '/front-back-next',
+    basePath: process.env.NODE_ENV === 'production' ? '/front-back-next' : '',
 };
 
 export default nextConfig;
