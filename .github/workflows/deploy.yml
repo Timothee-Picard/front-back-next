@@ -72,7 +72,7 @@ jobs:
         run: |
           git add .
           git commit -m "ci-cd: Build and publish package"
-          git push
+          git push origin main
 
       - name: Setup
         id: pages
