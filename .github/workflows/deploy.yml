@@ -52,10 +52,13 @@ jobs:
       - name: move docs to out
         run: mv docs out/documentation
 
-      - name: build and publish package on NPM
+      - name: GitHub Connexion
         run: |
           git config --global user.email "dev.timothee.picard@gmail.com"
           git config --global user.name "Picard Timothée"
+
+      - name: build and publish package on NPM
+        run: |
           npm run build-npm
           npm version patch
           npm publish
