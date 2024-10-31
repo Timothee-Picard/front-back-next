@@ -60,7 +60,7 @@ jobs:
       - name: build and publish package on NPM
         run: |
           npm run build-npm
-          npm version patch
+          npm version patch --no-git-tag-version
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
