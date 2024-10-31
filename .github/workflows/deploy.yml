@@ -60,6 +60,8 @@ jobs:
           git config --global user.email "dev.timothee.picard@gmail.com"
           git config --global user.name "Picard Timothée"
           git remote set-url origin https://x-access-token:${{ secrets.CUSTOM_TOKEN }}@github.com/${{ github.repository }}
+          git fetch origin main
+          git checkout main
 
       - name: publish package on NPM
         run: |
@@ -71,9 +73,7 @@ jobs:
       - name: Push changes
         run: |
           git add package.json
-          git commit -m "Build and publish package [skip ci]"
-          git fetch origin main
-          git checkout main
+          git commit -am "Build and publish package [skip ci]"
           git push origin main
 
       - name: Setup
