@@ -70,9 +70,11 @@ jobs:
 
       - name: Push changes
         run: |
+          git checkout -b temp-branch
           git add package.json
           git commit -m "ci-cd: Build and publish package"
           git checkout main
+          git merge temp-branch
           git push origin main
 
       - name: Setup
