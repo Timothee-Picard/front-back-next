@@ -72,6 +72,8 @@ jobs:
         run: |
           git add package.json
           git commit -m "Build and publish package [skip ci]"
+          git fetch origin main
+          git checkout main
           git push origin main
 
       - name: Setup
