@@ -68,6 +68,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Push changes
+        run: |
+          git add .
+          git commit -m "ci-cd: Build and publish package"
+          git push
+
       - name: Setup
         id: pages
         uses: actions/configure-pages@v3
