@@ -52,6 +52,9 @@ jobs:
       - name: move docs to out
         run: mv docs out/documentation
 
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
       - name: GitHub Connexion
         run: |
           git config --global user.email "dev.timothee.picard@gmail.com"
