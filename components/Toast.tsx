@@ -1,9 +1,9 @@
 "use client"
 
 import React from 'react';
-import { useToast } from '@/context/ToastContext'; // Assurez-vous que le chemin est correct
+import { useToast } from '@/context/ToastContext';
 
-const Toast: React.FC = () => {
+export default function Toast(){
 	const { toasts, removeToast } = useToast();
 
 	return (
@@ -13,7 +13,7 @@ const Toast: React.FC = () => {
 					<div key={toast.id}
 						 className={`max-w-xs bg-${toast.type} text-sm text-white rounded-md shadow-lg mb-3 ml-3`}
 						 role="alert">
-						<div className="flex p-4">
+						<div className="flex p-4" data-testid={`toast-${toast.id}`}>
 							{ toast.message }
 
 							<div className="ml-2">
@@ -38,5 +38,3 @@ const Toast: React.FC = () => {
 	)
 		;
 };
-
-export default Toast;

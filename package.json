@@ -1,17 +1,20 @@
 {
-  "name": "front-back-next2",
-  "version": "0.0.1",
-  "private": true,
+  "name": "timothee-picard-ci-cd",
+  "version": "0.0.2",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-npm": "NODE_ENV=production && rm -rf out && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --coverage --watchAll=false",
     "test:watch": "jest --coverage --watchAll=false",
     "tsdoc": "typedoc"
   },
-
+  "files": [
+    "out"
+  ],
   "dependencies": {
     "next": "14.2.15",
     "react": "^18",

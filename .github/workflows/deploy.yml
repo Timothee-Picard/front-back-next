@@ -52,6 +52,16 @@ jobs:
       - name: move docs to out
         run: mv docs out/documentation
 
+      - name: build and publish package on NPM
+        run: |
+          git config --global user.email "dev.timothee.picard@gmail.com"
+          git config --global user.name "Picard Timothée"
+          npm run build-npm
+          npm version patch
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Setup
         id: pages
         uses: actions/configure-pages@v3
