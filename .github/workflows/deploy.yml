@@ -59,6 +59,7 @@ jobs:
         run: |
           git config --global user.email "dev.timothee.picard@gmail.com"
           git config --global user.name "Picard Timothée"
+          git remote remove origin
           git remote set-url origin https://x-access-token:${{ secrets.CUSTOM_TOKEN }}@github.com/${{ github.repository }}
           git fetch origin main
           git checkout main
