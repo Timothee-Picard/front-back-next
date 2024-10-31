@@ -72,6 +72,7 @@ jobs:
         run: |
           git add package.json
           git commit -m "ci-cd: Build and publish package"
+          git checkout main
           git push origin main
 
       - name: Setup
