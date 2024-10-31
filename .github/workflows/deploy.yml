@@ -70,7 +70,7 @@ jobs:
 
       - name: Push changes
         run: |
-          git add .
+          git add package.json
           git commit -m "ci-cd: Build and publish package"
           git push origin main
 
