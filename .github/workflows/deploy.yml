@@ -59,10 +59,10 @@ jobs:
         run: |
           git config --global user.email "dev.timothee.picard@gmail.com"
           git config --global user.name "Picard Timothée"
+          git remote set-url origin https://x-access-token:${{ secrets.CUSTOM_TOKEN }}@github.com/${{ github.repository }}
 
-      - name: build and publish package on NPM
+      - name: publish package on NPM
         run: |
-          npm run build-npm
           npm version patch --no-git-tag-version
           npm publish
         env:
@@ -70,11 +70,8 @@ jobs:
 
       - name: Push changes
         run: |
-          git checkout -b temp-branch
           git add package.json
-          git commit -m "ci-cd: Build and publish package"
-          git checkout main
-          git merge temp-branch
+          git commit -m "Build and publish package [skip ci]"
           git push origin main
 
       - name: Setup
