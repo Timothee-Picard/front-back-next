@@ -56,25 +56,17 @@ Voici quelques scripts utiles pour gérer le projet :
     <br /><br />
 ## Deploy on GitPages
 
-Pour déployer le projet sur GitPages il vas falloir créer un tag sur la branche main et le pousser sur le dépôt distant.
+1. Créez un commit sur la branch `develop` avec les modifications à déployer.
+2. Poussez le commit sur le dépôt distant.
+3. Créez une pull request de la branch `develop` vers la branch `main`.
+4. Fusionnez la pull request.
+5. Les modifications sont automatiquement déployées sur GitPages.
 
-1. Créez un tag sur la branche main :
+Alternative:
 
-```bash
-git tag -a v1.0.0 -m "Version 1.0.0"
-```
-
-2. Poussez le tag sur le dépôt distant :
-
-```bash
-git push origin v1.0.0
-```
-
-3. Vérifiez que le tag a bien été poussé :
-
-```bash
-git tag
-```
+1. Créez un commit sur la branch `main` avec les modifications à déployer.
+2. Poussez le commit sur le dépôt distant.
+3. Les modifications sont automatiquement déployées sur GitPages.
 
 ## Technologies
 
