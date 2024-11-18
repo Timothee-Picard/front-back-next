@@ -5,7 +5,7 @@ import {
 	validateFirstName,
 	validateLastName,
 	validateZipCode
-} from '@/utils'
+} from '@/utils/validators'
 
 describe('validateBirthDate', () => {
 	it('should return true if the birth date is valid', () => {
@@ -55,7 +55,7 @@ describe('validateZipCode', () => {
 	})
 
 	it('should return an error if the zip code starts with a 0', () => {
-		expect(() => validateZipCode('00000')).toThrow('Zip code must start with a number other than 0')
+		expect(() => validateZipCode('09200')).toThrow('Zip code must start with a number other than 0')
 	})
 })
 
