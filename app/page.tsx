@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState} from "react"
+import React, { useState } from "react"
 import {
     validateBirthday,
     validateCity,
@@ -102,7 +102,8 @@ export default function Home() {
         };
 
         addToast('User added successfully', 'success')
-        console.log(userToAdd)
+        localStorage.users = JSON.stringify([...JSON.parse(localStorage.users || '[]'), userToAdd])
+        event.currentTarget.reset()
     }
 
     return (<>

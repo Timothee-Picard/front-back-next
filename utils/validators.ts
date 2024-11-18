@@ -1,17 +1,19 @@
+const validNamePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ\-'\s]+$/;
+const validZipCodePattern = /^\d{5}$/;
+const validEmailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 /**
  * Validate a zip code
  * @param zipCode The zip code to validate
  * @returns zipCode
  * @throws {Error} If the zip code is invalid
  */
-export function validateZipCode(zipCode: string) {
+export function validateZipCode(zipCode: string): string {
 	zipCode = zipCode.trim();
-	if (zipCode.includes(".")) throw new Error("Zip code cannot contain a decimal point")
-	if (zipCode.length !== 5) throw new Error("Zip code must be 5 characters long")
-	if (isNaN(Number(zipCode))) throw new Error("Zip code must be only numbers")
-	if (Number(zipCode) < 0) throw new Error("Zip code must be a positive number")
-	if (zipCode.startsWith("0")) throw new Error("Zip code must start with a number other than 0")
-	return zipCode
+	if (zipCode.includes(".")) throw new Error("Zip code cannot contain a decimal point");
+	if (zipCode.length !== 5) throw new Error("Zip code must be 5 characters long");
+	if (!validZipCodePattern.test(zipCode)) throw new Error("Zip code must be exactly 5 digits");
+	return zipCode;
 }
 
 /**
@@ -44,8 +46,7 @@ export function validateBirthday(birthday: string) {
  * @throws {Error} If the email address is invalid
  */
 export function validateEmail(email: string) {
-	const re = /\S+@\S+\.\S+/;
-	if (!re.test(email)) throw new Error("Invalid email address")
+	if (!validEmailPattern.test(email)) throw new Error("Invalid email address")
 	return email
 }
 
@@ -55,12 +56,14 @@ export function validateEmail(email: string) {
  * @returns first_name
  * @throws {Error} If the first name is invalid
  */
-export function validateFirstName(first_name: string) {
-	if (!first_name) throw new Error("First name is required")
-	if (first_name.length < 2) throw new Error("First name must be at least 2 characters long")
-	if (first_name.length > 50) throw new Error("First name must be at most 50 characters long")
-	return first_name
+export function validateFirstName(first_name: string): string {
+	if (!first_name) throw new Error("First name is required");
+	if (first_name.length < 2) throw new Error("First name must be at least 2 characters long");
+	if (first_name.length > 50) throw new Error("First name must be at most 50 characters long");
+	if (!validNamePattern.test(first_name)) throw new Error("First name contains invalid characters");
+	return first_name.trim();
 }
+
 
 /**
  * Validate Last Name
@@ -68,11 +71,12 @@ export function validateFirstName(first_name: string) {
  * @returns last_name
  * @throws {Error} If the last name is invalid
  */
-export function validateLastName(last_name: string) {
-	if (!last_name) throw new Error("Last name is required")
-	if (last_name.length < 2) throw new Error("Last name must be at least 2 characters long")
-	if (last_name.length > 50) throw new Error("Last name must be at most 50 characters long")
-	return last_name
+export function validateLastName(last_name: string): string {
+	if (!last_name) throw new Error("Last name is required");
+	if (last_name.length < 2) throw new Error("Last name must be at least 2 characters long");
+	if (last_name.length > 50) throw new Error("Last name must be at most 50 characters long");
+	if (!validNamePattern.test(last_name)) throw new Error("Last name contains invalid characters");
+	return last_name.trim();
 }
 
 /**
