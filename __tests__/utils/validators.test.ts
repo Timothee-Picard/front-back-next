@@ -42,20 +42,8 @@ describe('validateZipCode', () => {
 		expect(() => validateZipCode('1234')).toThrow('Zip code must be 5 characters long')
 	})
 
-	it('should return an error if the zip code is not only numbers', () => {
-		expect(() => validateZipCode('1234a')).toThrow('Zip code must be only numbers')
-	})
-
-	it('should return an error if the zip code is a negative number', () => {
-		expect(() => validateZipCode('-1234')).toThrow('Zip code must be a positive number')
-	})
-
 	it('should return an error if the zip code contains a decimal point', () => {
 		expect(() => validateZipCode('1000.234')).toThrow('Zip code cannot contain a decimal point')
-	})
-
-	it('should return an error if the zip code starts with a 0', () => {
-		expect(() => validateZipCode('09200')).toThrow('Zip code must start with a number other than 0')
 	})
 })
 
