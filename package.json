@@ -10,7 +10,7 @@
     "lint": "next lint",
     "test": "jest --coverage --watchAll=false",
     "test:watch": "jest --coverage --watchAll=false",
-    "tsdoc": "typedoc"
+    "tsdoc": "typedoc --entryPointStrategy expand --entryPoints ./app ./components ./utils --out docs"
   },
   "files": [
     "out"
